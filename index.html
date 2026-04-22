@@ -354,10 +354,18 @@
             </div>
 
             <div class="space-y-3 text-left">
-                <input type="text" id="newProjectNameInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold uppercase text-center" placeholder="PROJE ADI">
-                <input type="email" id="newProjectEmailInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="KURTARMA E-POSTASI">
-                <input type="text" id="newProjectUserInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="KULLANICI ADI">
-                <input type="password" id="newProjectPassInput" class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 mt-2 font-bold" placeholder="••••••••">
+                <div class="space-y-1">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">PROJE ADI</label>
+                    <input type="text" id="newProjectNameInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold uppercase text-center" placeholder="PROJE ADI">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">KULLANICI ADI</label>
+                    <input type="text" id="newProjectUserInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="KULLANICI ADI">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">ŞİFRE</label>
+                    <input type="password" id="newProjectPassInput" class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 font-bold" placeholder="••••••••">
+                </div>
             </div>
             <div class="flex gap-3 pt-2">
                 <button id="saveNewProjectBtn" class="flex-grow py-4 bg-[#000080] text-white rounded-2xl font-black shadow-lg hover:bg-blue-900 transition-all uppercase text-xs">Kaydet</button>
@@ -368,7 +376,7 @@
 
     <!-- Edit Project Auth Modal -->
     <div id="editProjectAuthModal" class="fixed inset-0 z-[11000] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-md">
-        <div class="bg-white rounded-[32px] p-6 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl text-center space-y-6 animate-in zoom-in duration-300 mx-4">
+        <div class="bg-white rounded-[32px] p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl text-center space-y-8 animate-in zoom-in duration-300 mx-4">
             <div class="w-14 h-14 bg-amber-50 rounded-full mx-auto flex items-center justify-center text-amber-600">
                 <i data-lucide="key-round" class="w-7 h-7"></i>
             </div>
@@ -391,10 +399,6 @@
                 <div class="space-y-1">
                     <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">PROJE ADI</label>
                     <input type="text" id="editProjectNameInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center uppercase" placeholder="PROJE ADI">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">KURTARMA E-POSTASI</label>
-                    <input type="email" id="editProjectEmailInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center" placeholder="E-POSTA">
                 </div>
                 <div class="space-y-1">
                     <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">Kullanıcı Adı</label>
@@ -1149,9 +1153,8 @@
 
         function openEditProjectAuth(projId) {
             currentlyEditingProject = projId; 
-            const auth = dynamicAuth[projId.toUpperCase()] || { user: '', pass: '', logo: null, name: '', email: '' };
+            const auth = dynamicAuth[projId.toUpperCase()] || { user: '', pass: '', logo: null, name: '' };
             get('editProjectNameInput').value = auth.name || projId;
-            get('editProjectEmailInput').value = auth.email || '';
             get('editProjectUserInput').value = auth.user;
             get('editProjectPassInput').value = auth.pass;
             get('editProjectAuthTitle').innerText = `${projId} BİLGİLERİ`;
@@ -1166,13 +1169,13 @@
 
         async function saveEditedProjectAuth() {
             const name = get('editProjectNameInput').value.trim().toUpperCase();
-            const email = get('editProjectEmailInput').value.trim();
             const user = get('editProjectUserInput').value.trim();
             const pass = get('editProjectPassInput').value.trim();
             const logo = get('editProjectLogoPreview').src || null;
             if (name && user && pass && currentlyEditingProject) {
                 toggleLoading(true, "Güncelleniyor...");
-                dynamicAuth[currentlyEditingProject.toUpperCase()] = { user: user, pass: pass, logo: logo, name: name, email: email };
+                const existingEmail = dynamicAuth[currentlyEditingProject.toUpperCase()]?.email || '';
+                dynamicAuth[currentlyEditingProject.toUpperCase()] = { user: user, pass: pass, logo: logo, name: name, email: existingEmail };
                 await saveDynamicAuthToSupabase();
                 if(activeProject === currentlyEditingProject) {
                     get('activeProjectTitle').innerText = name;
@@ -1208,19 +1211,18 @@
             safeSetClick('editProjectLogoBox', () => get('editProjectLogoInput').click());
             const epl = get('editProjectLogoInput'); if(epl) epl.onchange = (e) => handleModalLogoChange(e, 'editProjectLogoPreview', 'editProjectLogoPlaceholder');
             safeSetClick('addNewProjectBtn', function() {
-                get('newProjectNameInput').value = ""; get('newProjectEmailInput').value = ""; get('newProjectUserInput').value = ""; get('newProjectPassInput').value = "";
+                get('newProjectNameInput').value = ""; get('newProjectUserInput').value = ""; get('newProjectPassInput').value = "";
                 get('newProjectLogoPreview').src = ""; get('newProjectLogoPreview').classList.add('hidden');
                 get('newProjectLogoPlaceholder').classList.remove('hidden');
                 get('newProjectModal').classList.remove('hidden'); get('newProjectModal').classList.add('flex');
             });
             safeSetClick('saveNewProjectBtn', async function() {
                 const name = get('newProjectNameInput').value.trim().toUpperCase();
-                const email = get('newProjectEmailInput').value.trim();
                 const user = get('newProjectUserInput').value.trim(); const pass = get('newProjectPassInput').value.trim();
                 const logo = get('newProjectLogoPreview').src || null;
                 if (name && user && pass) {
                     toggleLoading(true, "Proje oluşturuluyor...");
-                    dynamicAuth[name] = { user: user, pass: pass, logo: logo, name: name, email: email }; 
+                    dynamicAuth[name] = { user: user, pass: pass, logo: logo, name: name, email: '' }; 
                     await saveDynamicAuthToSupabase();
                     activeProject = name; get('newProjectModal').classList.add('hidden'); get('newProjectModal').classList.remove('flex');
                     toggleLoading(false); openEditorForNewSop(); fetchArchive();
