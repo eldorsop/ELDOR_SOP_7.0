@@ -291,15 +291,15 @@
     <div id="confirmModal" class="fixed inset-0 z-[11000] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-md">
         <div class="bg-white rounded-[32px] p-8 max-w-md w-full shadow-2xl text-center space-y-6 animate-in zoom-in duration-300">
             <div id="confirmIcon" class="w-16 h-16 bg-red-50 rounded-full mx-auto flex items-center justify-center text-red-600">
-                <i data-lucide="trash-2" class="w-8 h-8"></i>
+                <i data-lucide="trash-2" class="w-10 h-10"></i>
             </div>
             <div>
-                <h3 id="confirmTitle" class="text-xl font-black text-slate-900 uppercase tracking-tighter">Emin misiniz?</h3>
+                <h3 id="confirmTitle" class="text-2xl font-black text-slate-900 uppercase tracking-tighter">Are you sure?</h3>
                 <p id="confirmText" class="text-slate-500 text-sm mt-2 font-medium leading-relaxed"></p>
             </div>
             <div class="flex gap-3">
-                <button id="confirmYesBtn" class="flex-grow py-4 bg-red-600 text-white rounded-2xl font-black shadow-lg hover:bg-red-700 transition-all uppercase text-xs">Evet</button>
-                <button id="confirmNoBtn" class="flex-grow py-4 bg-slate-100 text-slate-400 rounded-2xl font-black hover:bg-slate-200 transition-all uppercase text-xs">Vazgeç</button>
+                <button id="confirmYesBtn" class="flex-grow py-4 bg-red-600 text-white rounded-2xl font-black shadow-lg hover:bg-red-700 transition-all uppercase text-xs">Yes</button>
+                <button id="confirmNoBtn" class="flex-grow py-4 bg-slate-100 text-slate-400 rounded-2xl font-black hover:bg-slate-200 transition-all uppercase text-xs">Cancel</button>
             </div>
         </div>
     </div>
@@ -311,24 +311,24 @@
                 <i data-lucide="mail-warning" class="w-8 h-8"></i>
             </div>
             <div>
-                <h3 class="text-xl font-black text-slate-900 uppercase tracking-tight">Şifre Kurtarma</h3>
-                <p id="forgotPassStatus" class="text-slate-400 text-[10px] mt-1 font-bold uppercase text-center leading-relaxed">Şirket e-postanızı girin.</p>
+                <h3 class="text-xl font-black text-slate-900 uppercase tracking-tight">Password Recovery</h3>
+                <p id="forgotPassStatus" class="text-slate-400 text-[10px] mt-1 font-bold uppercase text-center leading-relaxed">Enter your company email.</p>
             </div>
 
             <div id="forgotEmailStage" class="space-y-4">
-                <input type="email" id="forgotEmailInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="E-POSTA ADRESİ">
-                <button id="sendCodeBtn" onclick="handleSendResetCode()" class="w-full py-4 bg-[#000080] text-white rounded-2xl font-black shadow-lg hover:bg-blue-900 transition-all uppercase text-xs">KOD GÖNDER</button>
+                <input type="email" id="forgotEmailInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="EMAIL ADDRESS">
+                <button id="sendCodeBtn" onclick="handleSendResetCode()" class="w-full py-4 bg-[#000080] text-white rounded-2xl font-black shadow-lg hover:bg-blue-900 transition-all uppercase text-xs">SEND CODE</button>
             </div>
 
             <div id="forgotVerifyStage" class="hidden space-y-4 text-center">
                 <div class="flex justify-center">
                     <input type="text" maxlength="6" id="verificationCodeInput" class="w-48 px-2 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-green-500 font-black text-2xl tracking-[0.5em] text-center" placeholder="000000">
                 </div>
-                <button onclick="handleVerifyCode()" class="w-full py-4 bg-green-600 text-white rounded-2xl font-black shadow-lg hover:bg-green-700 transition-all uppercase text-xs">KODU DOĞRULA</button>
-                <p class="text-[9px] text-slate-400 font-bold">Kod gelmedi mi? <button onclick="handleSendResetCode()" class="text-blue-600 underline">Tekrar Gönder</button></p>
+                <button onclick="handleVerifyCode()" class="w-full py-4 bg-green-600 text-white rounded-2xl font-black shadow-lg hover:bg-green-700 transition-all uppercase text-xs">VERIFY CODE</button>
+                <p class="text-[9px] text-slate-400 font-bold">Didn't get the code? <button onclick="handleSendResetCode()" class="text-blue-600 underline">Send Again</button></p>
             </div>
 
-            <button onclick="closeForgotPassModal()" class="text-slate-400 text-[10px] font-black uppercase hover:text-slate-700">Kapat</button>
+            <button onclick="closeForgotPassModal()" class="text-slate-400 text-[10px] font-black uppercase hover:text-slate-700">Close</button>
         </div>
     </div>
 
@@ -339,7 +339,7 @@
                 <i data-lucide="folder-plus" class="w-7 h-7"></i>
             </div>
             <div>
-                <h3 class="text-lg font-black text-slate-900 uppercase tracking-tight">Yeni Proje Oluştur</h3>
+                <h3 class="text-lg font-black text-slate-900 uppercase tracking-tight">Create New Project</h3>
             </div>
             
             <div class="space-y-2">
@@ -347,7 +347,7 @@
                     <img id="newProjectLogoPreview" class="hidden">
                     <div id="newProjectLogoPlaceholder" class="text-slate-300 flex flex-col items-center gap-1">
                         <i data-lucide="image" class="w-5 h-5"></i>
-                        <span class="text-[8px] font-black uppercase">Logo Seç</span>
+                        <span class="text-[8px] font-black uppercase">Select Logo</span>
                     </div>
                     <input type="file" id="newProjectLogoInput" class="hidden" accept="image/*">
                 </div>
@@ -355,21 +355,21 @@
 
             <div class="space-y-3 text-left">
                 <div class="space-y-1">
-                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">PROJE ADI</label>
-                    <input type="text" id="newProjectNameInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold uppercase text-center" placeholder="PROJE ADI">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">PROJECT NAME</label>
+                    <input type="text" id="newProjectNameInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold uppercase text-center" placeholder="PROJECT NAME">
                 </div>
                 <div class="space-y-1">
-                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">KULLANICI ADI</label>
-                    <input type="text" id="newProjectUserInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="KULLANICI ADI">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">USERNAME</label>
+                    <input type="text" id="newProjectUserInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-center" placeholder="USERNAME">
                 </div>
                 <div class="space-y-1">
-                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">ŞİFRE</label>
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">PASSWORD</label>
                     <input type="password" id="newProjectPassInput" class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 font-bold" placeholder="••••••••">
                 </div>
             </div>
             <div class="flex gap-3 pt-2">
-                <button id="saveNewProjectBtn" class="flex-grow py-4 bg-[#000080] text-white rounded-2xl font-black shadow-lg hover:bg-blue-900 transition-all uppercase text-xs">Kaydet</button>
-                <button onclick="get('newProjectModal').classList.add('hidden'); get('newProjectModal').classList.remove('flex');" class="flex-grow py-4 bg-slate-100 text-slate-400 rounded-2xl font-black hover:bg-slate-200 transition-all uppercase text-xs">İptal</button>
+                <button id="saveNewProjectBtn" class="flex-grow py-4 bg-[#000080] text-white rounded-2xl font-black shadow-lg hover:bg-blue-900 transition-all uppercase text-xs">Save</button>
+                <button onclick="get('newProjectModal').classList.add('hidden'); get('newProjectModal').classList.remove('flex');" class="flex-grow py-4 bg-slate-100 text-slate-400 rounded-2xl font-black hover:bg-slate-200 transition-all uppercase text-xs">Cancel</button>
             </div>
         </div>
     </div>
@@ -381,7 +381,7 @@
                 <i data-lucide="key-round" class="w-7 h-7"></i>
             </div>
             <div>
-                <h3 id="editProjectAuthTitle" class="text-lg font-black text-slate-900 uppercase tracking-tight">PROJE BİLGİLERİ</h3>
+                <h3 id="editProjectAuthTitle" class="text-lg font-black text-slate-900 uppercase tracking-tight">PROJECT INFORMATION</h3>
             </div>
 
             <div class="space-y-2">
@@ -389,7 +389,7 @@
                     <img id="editProjectLogoPreview" class="hidden">
                     <div id="editProjectLogoPlaceholder" class="text-slate-300 flex flex-col items-center gap-1">
                         <i data-lucide="image" class="w-5 h-5"></i>
-                        <span class="text-[8px] font-black uppercase">Logo Seç</span>
+                        <span class="text-[8px] font-black uppercase">Select Logo</span>
                     </div>
                     <input type="file" id="editProjectLogoInput" class="hidden" accept="image/*">
                 </div>
@@ -397,21 +397,21 @@
 
             <div class="space-y-4 text-left">
                 <div class="space-y-1">
-                    <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">PROJE ADI</label>
-                    <input type="text" id="editProjectNameInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center uppercase" placeholder="PROJE ADI">
+                    <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">PROJECT NAME</label>
+                    <input type="text" id="editProjectNameInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center uppercase" placeholder="PROJECT NAME">
                 </div>
                 <div class="space-y-1">
-                    <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">Kullanıcı Adı</label>
-                    <input type="text" id="editProjectUserInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center" placeholder="KULLANICI ADI">
+                    <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">Username</label>
+                    <input type="text" id="editProjectUserInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center" placeholder="USERNAME">
                 </div>
                 <div class="space-y-1">
-                    <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">Şifre</label>
-                    <input type="text" id="editProjectPassInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center" placeholder="ŞİFRE">
+                    <label class="text-[9px] font-black text-slate-400 uppercase ml-2 tracking-widest">Password</label>
+                    <input type="text" id="editProjectPassInput" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-amber-500 font-bold text-center" placeholder="PASSWORD">
                 </div>
             </div>
             <div class="flex gap-3 pt-2">
-                <button id="saveEditedProjectAuthBtn" class="flex-grow py-4 bg-amber-600 text-white rounded-2xl font-black shadow-lg hover:bg-amber-700 transition-all uppercase text-xs">DEĞİŞTİR</button>
-                <button onclick="get('editProjectAuthModal').classList.add('hidden'); get('editProjectAuthModal').classList.remove('flex');" class="flex-grow py-4 bg-slate-100 text-slate-400 rounded-2xl font-black hover:bg-slate-200 transition-all uppercase text-xs">İptal</button>
+                <button id="saveEditedProjectAuthBtn" class="flex-grow py-4 bg-amber-600 text-white rounded-2xl font-black shadow-lg hover:bg-amber-700 transition-all uppercase text-xs">UPDATE</button>
+                <button onclick="get('editProjectAuthModal').classList.add('hidden'); get('editProjectAuthModal').classList.remove('flex');" class="flex-grow py-4 bg-slate-100 text-slate-400 rounded-2xl font-black hover:bg-slate-200 transition-all uppercase text-xs">Cancel</button>
             </div>
         </div>
     </div>
@@ -422,9 +422,9 @@
             <div id="msgIcon" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-6 bg-red-100 text-red-600">
                 <i data-lucide="alert-triangle" class="w-8 h-8"></i>
             </div>
-            <h4 id="msgTitle" class="font-black text-slate-900 text-xl mb-2">Bilgi</h4>
+            <h4 id="msgTitle" class="font-black text-slate-900 text-xl mb-2">Information</h4>
             <p id="msgText" class="text-sm text-slate-500 mb-8 leading-relaxed whitespace-pre-line"></p>
-            <button onclick="get('msgBox').classList.add('hidden'); get('msgBox').classList.remove('flex');" class="w-full py-4 bg-[#000080] text-white rounded-2xl font-bold shadow-lg hover:bg-blue-900 transition-colors">Tamam</button>
+            <button onclick="get('msgBox').classList.add('hidden'); get('msgBox').classList.remove('flex');" class="w-full py-4 bg-[#000080] text-white rounded-2xl font-bold shadow-lg hover:bg-blue-900 transition-colors">OK</button>
         </div>
     </div>
 
@@ -432,8 +432,8 @@
     <div id="modeSelectionScreen">
         <div class="bg-white w-full max-w-2xl rounded-[40px] p-6 sm:p-12 shadow-2xl space-y-6 sm:space-y-10 text-center animate-in fade-in zoom-in duration-300">
             <div class="space-y-2">
-                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 uppercase tracking-tighter">Erişim Modu</h2>
-                <p class="text-slate-400 text-xs sm:text-base font-medium">Dökümanı hangi yetkiyle görüntülemek istersiniz?</p>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 uppercase tracking-tighter">Access Mode</h2>
+                <p class="text-slate-400 text-xs sm:text-base font-medium">How would you like to view the document?</p>
             </div>
             <div class="grid grid-cols-2 gap-3 sm:gap-8">
                 <button onclick="handleModeChoice('engineer')" class="group relative p-4 sm:p-10 bg-slate-50 border-2 border-transparent hover:border-[#000080] rounded-[24px] sm:rounded-[32px] transition-all text-left flex flex-col gap-3 sm:gap-6 shadow-sm">
@@ -441,23 +441,23 @@
                         <i data-lucide="settings" class="w-5 h-5 sm:w-8 sm:h-8"></i>
                     </div>
                     <div>
-                        <h3 class="text-base sm:text-2xl font-black text-slate-800 uppercase tracking-tight">Mühendis</h3>
-                        <p class="hidden sm:block text-xs text-slate-500 mt-2 leading-relaxed font-medium">Tam teknik görünüm ve düzenleme yetkisi.</p>
+                        <h3 class="text-base sm:text-2xl font-black text-slate-800 uppercase tracking-tight">Engineer</h3>
+                        <p class="hidden sm:block text-xs text-slate-500 mt-2 leading-relaxed font-medium">Full technical view and editing permission.</p>
                     </div>
-                    <div class="mt-auto flex items-center text-[#000080] font-bold text-[8px] sm:text-xs uppercase italic tracking-tighter">ŞİFRE GEREKLİ <i data-lucide="lock" class="w-2 h-2 sm:w-3 sm:h-3 ml-1 sm:ml-2"></i></div>
+                    <div class="mt-auto flex items-center text-[#000080] font-bold text-[8px] sm:text-xs uppercase italic tracking-tighter">PASSWORD REQUIRED <i data-lucide="lock" class="w-2 h-2 sm:w-3 sm:h-3 ml-1 sm:ml-2"></i></div>
                 </button>
                 <button onclick="handleModeChoice('operator')" class="group relative p-4 sm:p-10 bg-slate-50 border-2 border-transparent hover:border-[#000080] rounded-[24px] sm:rounded-[32px] transition-all text-left flex flex-col gap-3 sm:gap-6 shadow-sm">
                     <div class="w-10 h-10 sm:w-16 sm:h-16 bg-orange-100 rounded-xl sm:rounded-2xl flex items-center justify-center text-orange-600 group-hover:scale-110 transition-transform">
                         <i data-lucide="user-check" class="w-5 h-5 sm:w-8 sm:h-8"></i>
                     </div>
                     <div>
-                        <h3 class="text-base sm:text-2xl font-black text-slate-800 uppercase tracking-tight">Operatör</h3>
-                        <p class="hidden sm:block text-xs text-slate-500 mt-2 leading-relaxed font-medium">Adım adım ilerleyen üretim odaklı görünüm.</p>
+                        <h3 class="text-base sm:text-2xl font-black text-slate-800 uppercase tracking-tight">Operator</h3>
+                        <p class="hidden sm:block text-xs text-slate-500 mt-2 leading-relaxed font-medium">Step-by-step production-oriented view.</p>
                     </div>
-                    <div class="mt-auto flex items-center text-[#000080] font-bold text-[8px] sm:text-xs uppercase">ŞİFRESİZ ERİŞİM <i data-lucide="arrow-right" class="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2"></i></div>
+                    <div class="mt-auto flex items-center text-[#000080] font-bold text-[8px] sm:text-xs uppercase">FREE ACCESS <i data-lucide="arrow-right" class="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2"></i></div>
                 </button>
             </div>
-            <button onclick="logout()" class="text-slate-400 text-[10px] font-black uppercase hover:text-slate-700 tracking-widest pt-4">Sistem Girişine Dön</button>
+            <button onclick="logout()" class="text-slate-400 text-[10px] font-black uppercase hover:text-slate-700 tracking-widest pt-4">Return to Main Login</button>
         </div>
     </div>
 
@@ -468,26 +468,26 @@
                 <div class="w-20 h-20 bg-blue-50 rounded-2xl mx-auto flex items-center justify-center mb-6">
                     <i id="loginIcon" data-lucide="shield-check" class="w-10 h-10 text-[#000080]"></i>
                 </div>
-                <h2 id="loginHeading" class="text-3xl font-black text-slate-900 uppercase tracking-tighter">Giriş Yap</h2>
-                <p id="loginSubheading" class="text-slate-400 text-sm mt-2 font-medium">Erişiminizi doğrulamak için bilgilerinizi girin.</p>
+                <h2 id="loginHeading" class="text-3xl font-black text-slate-900 uppercase tracking-tighter">Log In</h2>
+                <p id="loginSubheading" class="text-slate-400 text-sm mt-2 font-medium">Enter your credentials to verify access.</p>
             </div>
             <form id="loginForm" class="space-y-6">
                 <div>
-                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Kullanıcı Adı</label>
-                    <input type="text" id="usernameInput" class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 mt-2 font-bold" placeholder="Kullanıcı Adı">
+                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Username</label>
+                    <input type="text" id="usernameInput" class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 mt-2 font-bold" placeholder="Username">
                 </div>
                 <div>
                     <div class="flex justify-between items-center">
-                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Şifre</label>
-                        <button type="button" onclick="openForgotPassModal()" class="text-[10px] font-black text-blue-600 uppercase hover:underline">Şifremi Unuttum?</button>
+                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Password</label>
+                        <button type="button" onclick="openForgotPassModal()" class="text-[10px] font-black text-blue-600 uppercase hover:underline">Forgot Password?</button>
                     </div>
                     <input type="password" id="passwordInput" required class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 mt-2 font-bold" placeholder="••••••••">
                 </div>
-                <div id="loginError" class="hidden text-red-600 text-[11px] font-black text-center bg-red-50 py-3 rounded-xl border border-red-100">Hatalı bilgiler.</div>
+                <div id="loginError" class="hidden text-red-600 text-[11px] font-black text-center bg-red-50 py-3 rounded-xl border border-red-100">Incorrect credentials.</div>
                 
                 <div class="space-y-3 pt-2">
                     <div class="flex gap-3">
-                        <button type="submit" class="flex-grow py-5 bg-[#000080] text-white rounded-2xl font-black shadow-xl hover:bg-blue-900 transition-all uppercase tracking-tight">Sisteme Gir</button>
+                        <button type="submit" class="flex-grow py-5 bg-[#000080] text-white rounded-2xl font-black shadow-xl hover:bg-blue-900 transition-all uppercase tracking-tight">Access System</button>
                         <button type="button" id="backToGateway" class="hidden px-6 bg-slate-100 text-slate-400 rounded-2xl hover:bg-slate-200 transition-colors flex items-center justify-center"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
                     </div>
                 </div>
@@ -502,13 +502,13 @@
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-4 center-on-collapse">
                         <div id="sidebarToggle" class="w-10 h-10 bg-[#000080] rounded-xl flex items-center justify-center cursor-pointer shadow-lg hover:bg-blue-900 transition-colors"><i data-lucide="layout-grid" class="w-5 h-5 text-white"></i></div>
-                        <h2 class="font-black text-slate-800 hide-on-collapse uppercase text-sm tracking-tighter">SOP Arşivi</h2>
+                        <h2 class="font-black text-slate-800 hide-on-collapse uppercase text-sm tracking-tighter">SOP Archive</h2>
                     </div>
                     <button onclick="logout()" class="p-2.5 text-red-400 hover:bg-red-50 rounded-xl hide-on-collapse transition-colors"><i data-lucide="power" class="w-5 h-5"></i></button>
                 </div>
                 
                 <div id="draftContainer" class="hide-on-collapse"></div>
-                <button id="addNewProjectBtn" class="hidden w-full py-4 bg-[#000080] text-white rounded-2xl text-[11px] font-black flex items-center justify-center gap-2 hide-on-collapse shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 transition-all uppercase tracking-widest"><i data-lucide="plus" class="w-4 h-4"></i> YENİ PROJE</button>
+                <button id="addNewProjectBtn" class="hidden w-full py-4 bg-[#000080] text-white rounded-2xl text-[11px] font-black flex items-center justify-center gap-2 hide-on-collapse shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 transition-all uppercase tracking-widest"><i data-lucide="plus" class="w-4 h-4"></i> NEW PROJECT</button>
             </div>
             <div id="archiveSidebarList" class="flex-grow overflow-y-auto p-4 space-y-2 custom-scrollbar"></div>
         </aside>
@@ -517,10 +517,10 @@
             <div id="projectEmptyState" class="h-full flex flex-col items-center justify-center text-center space-y-8">
                 <div class="w-32 h-32 bg-blue-50 rounded-[40px] flex items-center justify-center rotate-6"><i data-lucide="folder-search" class="w-16 h-16 text-[#000080]"></i></div>
                 <div class="space-y-2">
-                    <h2 id="activeProjectTitle" class="text-4xl font-black text-slate-900 tracking-tighter uppercase">Döküman Seçimi</h2>
-                    <p class="text-slate-400 font-medium max-w-xs mx-auto">İşlem yapmak veya yeni döküman eklemek için yan menüden bir proje seçin.</p>
+                    <h2 id="activeProjectTitle" class="text-4xl font-black text-slate-900 tracking-tighter uppercase">Document Selection</h2>
+                    <p class="text-slate-400 font-medium max-w-xs mx-auto">Select a project from the side menu to perform actions or add a new document.</p>
                 </div>
-                <button id="startNewSopBtn" class="hidden px-10 py-5 bg-[#000080] text-white rounded-2xl font-black shadow-2xl hover:scale-105 transition-all uppercase text-xs tracking-widest">YENİ TALİMAT EKLE</button>
+                <button id="startNewSopBtn" class="hidden px-10 py-5 bg-[#000080] text-white rounded-2xl font-black shadow-2xl hover:scale-105 transition-all uppercase text-xs tracking-widest">ADD NEW INSTRUCTION</button>
             </div>
 
             <!-- EDITOR PANEL -->
@@ -528,11 +528,11 @@
                 <div class="flex flex-col lg:flex-row items-center gap-8 bg-white p-8 rounded-[32px] shadow-sm border border-slate-200">
                     <div id="logoUploadBox" class="w-24 h-24 shrink-0 border-2 border-dashed border-slate-200 rounded-[20px] flex items-center justify-center cursor-pointer bg-slate-50 relative hover:bg-slate-100 transition-colors group">
                         <img id="logoPreview" class="hidden w-full h-full object-contain p-3">
-                        <div id="logoPlaceholder" class="text-slate-300 text-[10px] font-black uppercase text-center group-hover:text-slate-400 transition-colors leading-tight px-2">Logo Yükle</div>
+                        <div id="logoPlaceholder" class="text-slate-300 text-[10px] font-black uppercase text-center group-hover:text-slate-400 transition-colors leading-tight px-2">Upload Logo</div>
                         <input type="file" id="logoInput" class="hidden" accept="image/*">
                     </div>
                     <div class="flex-grow flex flex-col gap-1 w-full">
-                        <input type="text" id="sopTitleInput" class="w-full border-b-2 border-slate-100 focus:border-[#000080] outline-none font-black text-3xl text-[#000080] bg-transparent" placeholder="TALİMAT BAŞLIĞI">
+                        <input type="text" id="sopTitleInput" class="w-full border-b-2 border-slate-100 focus:border-[#000080] outline-none font-black text-3xl text-[#000080] bg-transparent" placeholder="INSTRUCTION TITLE">
                         <div class="flex flex-col gap-0.5">
                             <input type="text" id="sopSubtitleInput" readonly class="text-xs outline-none text-slate-400 font-black uppercase cursor-not-allowed tracking-widest">
                             <div id="lastEditInfo" class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1"></div>
@@ -540,10 +540,10 @@
                     </div>
                     <div class="flex gap-3">
                         <button id="viewRevisionBtn" class="hidden px-6 py-4 bg-slate-100 text-slate-500 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-slate-200 transition-all flex items-center gap-2">
-                            <i id="viewRevisionIcon" data-lucide="eye" class="w-4 h-4"></i> <span id="viewRevisionLabel">REVİZYONU GÖR</span>
+                            <i id="viewRevisionIcon" data-lucide="eye" class="w-4 h-4"></i> <span id="viewRevisionLabel">VIEW REVISION</span>
                         </button>
-                        <button id="exportSupabaseBtn" class="px-10 py-4 bg-[#000080] text-white rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:bg-blue-900 transition-all">KAYDET</button>
-                        <button id="cancelSopBtn" class="px-6 py-4 text-xs text-slate-400 font-black uppercase hover:text-red-500 transition-colors">Vazgeç</button>
+                        <button id="exportSupabaseBtn" class="px-10 py-4 bg-[#000080] text-white rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:bg-blue-900 transition-all">SAVE</button>
+                        <button id="cancelSopBtn" class="px-6 py-4 text-xs text-slate-400 font-black uppercase hover:text-red-500 transition-colors">Cancel</button>
                     </div>
                 </div>
 
@@ -555,7 +555,7 @@
                             </div>
                             <div id="uploadArea" class="bg-slate-50 py-32 rounded-3xl border-2 border-dashed border-slate-200 text-center cursor-pointer hover:bg-slate-100 transition-all">
                                 <i data-lucide="image-plus" class="w-12 h-12 text-slate-300 mx-auto mb-4"></i>
-                                <p class="font-black text-slate-400 uppercase text-xs tracking-widest">Görsel Yükle</p>
+                                <p class="font-black text-slate-400 uppercase text-xs tracking-widest">Upload Image</p>
                                 <input type="file" id="fileInput" class="hidden" accept="image/*">
                             </div>
                             <div id="editorArea" class="hidden space-y-6">
@@ -569,7 +569,7 @@
                                         <button id="toolArrow" class="tool-btn p-3 rounded-xl"><i data-lucide="arrow-up-right" class="w-5 h-5"></i></button>
                                         <button id="toolOperator" class="tool-btn p-3 rounded-xl"><i data-lucide="user-cog" class="w-5 h-5"></i></button>
                                     </div>
-                                    <button onclick="clearCurrentImage()" class="px-5 py-3 text-xs font-black text-red-600 bg-red-50 rounded-xl hover:bg-red-100 transition-colors uppercase tracking-widest">Görseli Kaldır</button>
+                                    <button onclick="clearCurrentImage()" class="px-5 py-3 text-xs font-black text-red-600 bg-red-50 rounded-xl hover:bg-red-100 transition-colors uppercase tracking-widest">Remove Image</button>
                                 </div>
                                 <div class="canvas-container" id="canvasContainer">
                                     <canvas id="mainCanvas"></canvas>
@@ -582,15 +582,15 @@
                     <div class="space-y-8">
                         <div class="bg-white p-8 rounded-[32px] border border-slate-200 shadow-sm h-[500px] flex flex-col">
                             <div class="flex items-center justify-between mb-8">
-                                <h3 class="font-black text-[#000080] text-xs uppercase tracking-widest flex items-center gap-2"><i data-lucide="list-ordered" class="w-4 h-4"></i> TALİMAT ADIMLARI</h3>
-                                <button id="addManualBtn" class="bg-blue-600 text-white text-[10px] px-4 py-2 rounded-xl font-black hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/10">+ EKLE</button>
+                                <h3 class="font-black text-[#000080] text-xs uppercase tracking-widest flex items-center gap-2"><i data-lucide="list-ordered" class="w-4 h-4"></i> INSTRUCTION STEPS</h3>
+                                <button id="addManualBtn" class="bg-blue-600 text-white text-[10px] px-4 py-2 rounded-xl font-black hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/10">+ ADD</button>
                             </div>
                             <div class="flex-grow overflow-y-auto pr-2 custom-scrollbar" id="tableBody"></div>
                         </div>
                         <div class="bg-white p-8 rounded-[32px] border border-slate-200 shadow-sm">
-                            <h3 class="font-black text-red-600 text-xs mb-6 uppercase tracking-widest flex items-center gap-2"><i data-lucide="alert-circle" class="w-4 h-4"></i> KRİTİK UYARILAR</h3>
+                            <h3 class="font-black text-red-600 text-xs mb-6 uppercase tracking-widest flex items-center gap-2"><i data-lucide="alert-circle" class="w-4 h-4"></i> CRITICAL WARNINGS</h3>
                             <div id="warningsContainer" class="space-y-3"></div>
-                            <button id="addWarningBtn" class="mt-6 w-full py-4 border-2 border-dashed border-red-100 text-red-400 text-[10px] rounded-2xl font-black hover:bg-red-50 hover:border-red-200 transition-all uppercase tracking-widest">+ UYARI EKLE</button>
+                            <button id="addWarningBtn" class="mt-6 w-full py-4 border-2 border-dashed border-red-100 text-red-400 text-[10px] rounded-2xl font-black hover:bg-red-50 hover:border-red-200 transition-all uppercase tracking-widest">+ ADD WARNING</button>
                         </div>
                     </div>
                 </div>
@@ -604,13 +604,13 @@
             <div class="flex items-center gap-4">
                 <div id="opLogoContainer" class="w-12 h-12 bg-white rounded-xl p-2 flex items-center justify-center shadow-inner"></div>
                 <div>
-                    <h1 id="opSopTitle" class="font-black text-lg leading-none uppercase tracking-tight">TALİMAT BAŞLIĞI</h1>
-                    <p id="opSopSubtitle" class="text-[11px] opacity-60 font-bold uppercase tracking-widest mt-1">PROJE KODU</p>
+                    <h1 id="opSopTitle" class="font-black text-lg leading-none uppercase tracking-tight">INSTRUCTION TITLE</h1>
+                    <p id="opSopSubtitle" class="text-[11px] opacity-60 font-bold uppercase tracking-widest mt-1">PROJECT CODE</p>
                     <p id="opLastEditInfo" class="text-[9px] font-bold uppercase tracking-widest mt-1.5 border-t border-white/20 pt-1 text-white opacity-100"></p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
-                <span id="opModeBadge" class="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest">Operatör Görünümü</span>
+                <span id="opModeBadge" class="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest">Operator View</span>
                 <button onclick="exitOperatorView()" class="bg-red-500/20 hover:bg-red-500/40 p-3 rounded-xl transition-colors text-white"><i data-lucide="log-out" class="w-5 h-5"></i></button>
             </div>
         </header>
@@ -620,7 +620,7 @@
                 <div id="opMedia" class="relative"></div>
                 <div id="opNavigation" class="hidden flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
                     <button onclick="prevOpImage()" class="op-slider-btn"><i data-lucide="chevron-left"></i></button>
-                    <div class="text-center"><span id="opImageCounter" class="text-xs font-black text-slate-400 uppercase tracking-widest">Görsel 1 / 1</span></div>
+                    <div class="text-center"><span id="opImageCounter" class="text-xs font-black text-slate-400 uppercase tracking-widest">Image 1 / 1</span></div>
                     <button onclick="nextOpImage()" class="op-slider-btn"><i data-lucide="chevron-right"></i></button>
                 </div>
             </div>
@@ -630,18 +630,18 @@
 
     <div id="loading" class="loading-overlay">
         <div class="w-16 h-16 border-4 border-[#000080] border-t-transparent rounded-full animate-spin mb-6"></div>
-        <p class="font-black text-[#000080] text-lg uppercase tracking-tighter" id="loadingText">Yükleniyor...</p>
+        <p class="font-black text-[#000080] text-lg uppercase tracking-tighter" id="loadingText">Loading...</p>
     </div>
 
     <!-- QR Modal -->
     <div id="qrModal" class="fixed inset-0 bg-black/70 z-[9995] hidden items-center justify-center p-4 backdrop-blur-md">
         <div class="bg-white rounded-[40px] max-w-xs w-full p-8 shadow-2xl text-center relative animate-in zoom-in duration-300">
-            <h3 class="text-xl font-black mb-6 uppercase tracking-tight text-slate-900" id="qrModalTitle">Talimat Bilgisi</h3>
+            <h3 class="text-xl font-black mb-6 uppercase tracking-tight text-slate-900" id="qrModalTitle">Instruction Info</h3>
             <div id="qrcode" class="bg-white p-4 rounded-3xl border border-slate-100 inline-block mb-6 shadow-sm"></div>
-            <p class="text-slate-400 text-[10px] mb-8 uppercase font-black tracking-widest">Talimat Direkt Bağlantısı</p>
+            <p class="text-slate-400 text-[10px] mb-8 uppercase font-black tracking-widest">Instruction Direct Link</p>
             <div class="flex flex-col gap-3">
-                <button id="downloadQrPngBtn" class="w-full py-4 bg-[#000080] text-white rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-blue-900 transition-all flex items-center justify-center gap-2"><i data-lucide="download" class="w-4 h-4"></i> QR İndir (PNG)</button>
-                <button onclick="get('qrModal').classList.add('hidden'); get('qrModal').classList.remove('flex');" class="w-full py-4 bg-slate-100 text-slate-400 rounded-2xl font-black uppercase text-xs hover:bg-slate-200 transition-colors">Kapat</button>
+                <button id="downloadQrPngBtn" class="w-full py-4 bg-[#000080] text-white rounded-2xl font-black uppercase text-xs shadow-lg hover:bg-blue-900 transition-all flex items-center justify-center gap-2"><i data-lucide="download" class="w-4 h-4"></i> Download QR (PNG)</button>
+                <button onclick="get('qrModal').classList.add('hidden'); get('qrModal').classList.remove('flex');" class="w-full py-4 bg-slate-100 text-slate-400 rounded-2xl font-black uppercase text-xs hover:bg-slate-200 transition-colors">Close</button>
             </div>
         </div>
     </div>
@@ -713,16 +713,16 @@
 
         function getEditStatusString(data) {
             const now = new Date();
-            const dateStr = data.lastEditedAt || (now.toLocaleDateString('tr-TR') + ' ' + now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' }));
+            const dateStr = data.lastEditedAt || (now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }));
             let user = data.lastEditedBy || (currentUser.project || "ELDOR");
             let displayUser = user.toUpperCase();
             if (!displayUser.includes("ADMIN")) {
                 displayUser = displayUser + " ADMIN";
             }
             if (!data.isEdited) {
-                return `ORİJİNAL VERSİYON, ${displayUser}, ${dateStr}`;
+                return `ORIGINAL VERSION, ${displayUser}, ${dateStr}`;
             } else {
-                return `SON DÜZENLEYEN: ${displayUser}, ${dateStr}`;
+                return `LAST EDITED BY: ${displayUser}, ${dateStr}`;
             }
         }
 
@@ -734,15 +734,15 @@
             btn.classList.remove('hidden');
             btn.classList.add('flex');
             if (isDirty) {
-                label.innerText = "KAYITLI HALİYLE KARŞILAŞTIR";
+                label.innerText = "COMPARE WITH SAVED";
                 btn.className = "px-6 py-4 bg-orange-50 text-orange-600 border border-orange-200 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-orange-100 transition-all flex items-center gap-2 shadow-sm";
                 if(icon) icon.setAttribute('data-lucide', 'arrow-left-right');
             } else if (!loadedSopIsEdited) {
-                label.innerText = "ORİJİNAL HALİ (GÜNCEL)";
+                label.innerText = "ORIGINAL VERSION (LATEST)";
                 btn.className = "px-6 py-4 bg-green-50 text-green-600 border border-green-200 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-green-100 transition-all flex items-center gap-2 border border-green-100 shadow-sm";
                 if(icon) icon.setAttribute('data-lucide', 'check-circle');
             } else {
-                label.innerText = "ÖNCEKİ REVİZYONU GÖR";
+                label.innerText = "VIEW PREVIOUS REVISION";
                 btn.className = "px-6 py-4 bg-blue-50 text-[#000080] border border-blue-200 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-blue-100 transition-all flex items-center gap-2 border border-blue-100 shadow-sm";
                 if(icon) icon.setAttribute('data-lucide', 'history');
             }
@@ -759,7 +759,7 @@
             get('forgotPassModal').classList.add('flex');
             get('forgotEmailStage').classList.remove('hidden');
             get('forgotVerifyStage').classList.add('hidden');
-            get('forgotPassStatus').innerText = "Şirket e-postanızı girin.";
+            get('forgotPassStatus').innerText = "Enter your company email.";
             get('forgotPassStatus').className = "text-slate-400 text-[10px] mt-1 font-bold uppercase text-center leading-relaxed";
             get('forgotEmailInput').value = "";
             get('verificationCodeInput').value = "";
@@ -773,17 +773,17 @@
 
         async function handleSendResetCode() {
             const emailInput = get('forgotEmailInput').value.trim().toLowerCase();
-            if(!emailInput) return showMessage("Eksik Bilgi", "Lütfen bir e-posta adresi girin.");
+            if(!emailInput) return showMessage("Missing Info", "Please enter an email address.");
 
             const isNisanAddress = emailInput === 'nisanaskr@gmail.com';
             const isEldorDomain = emailInput.includes('@eldor');
 
             if(!isNisanAddress && !isEldorDomain) {
-                return showMessage("Erişim Engellendi", "Bu e-posta adresi şifre kurtarma işlemi için yetkili değil.\nSadece nisanaskr@gmail.com ve @eldor içeren mailler kullanılabilir.");
+                return showMessage("Access Denied", "This email address is not authorized for password recovery.\nOnly nisanaskr@gmail.com and emails containing @eldor can be used.");
             }
 
             lastEnteredEmail = emailInput;
-            toggleLoading(true, "Kod gönderiliyor...");
+            toggleLoading(true, "Sending code...");
 
             resetTargetProjectData = null;
 
@@ -811,7 +811,7 @@
 
             if (!resetTargetProjectData) {
                 toggleLoading(false);
-                return showMessage("Kayıt Bulunamadı", "Girdiğiniz e-posta adresi ile eşleşen veya okuttuğunuz QR koda ait bir proje kaydı bulunamadı.");
+                return showMessage("No Record Found", "No project record matching the email or the scanned QR code was found.");
             }
 
             generatedResetCode = Math.floor(100000 + Math.random() * 900000).toString();
@@ -830,44 +830,44 @@
                     toggleLoading(false);
                     get('forgotEmailStage').classList.add('hidden');
                     get('forgotVerifyStage').classList.remove('hidden');
-                    get('forgotPassStatus').innerText = "6 haneli doğrulama kodu e-postanıza başarıyla gönderildi.";
+                    get('forgotPassStatus').innerText = "6-digit verification code has been successfully sent to your email.";
                     get('forgotPassStatus').className = "text-blue-600 text-[11px] mt-1 font-black uppercase text-center bg-blue-50 p-2 rounded-lg shadow-sm animate-pulse";
                 } else {
-                    throw new Error("Sunucu yanıt vermedi.");
+                    throw new Error("Server did not respond.");
                 }
             } catch (err) {
                 toggleLoading(false);
-                showMessage("Servis Hatası", "Kod gönderilemedi.\nDetay: " + (err.text || err.message || "Bilinmiyor"));
+                showMessage("Service Error", "Code could not be sent.\nDetail: " + (err.text || err.message || "Unknown"));
             }
         }
 
         async function handleVerifyCode() {
             const enteredCode = get('verificationCodeInput').value.trim();
-            if(!enteredCode) return showMessage("Hata", "Lütfen kodu girin.");
+            if(!enteredCode) return showMessage("Error", "Please enter the code.");
 
             if(enteredCode === generatedResetCode) {
                 if(resetTargetProjectData) {
-                    toggleLoading(true, "Erişim bilgileri gönderiliyor...");
+                    toggleLoading(true, "Sending access information...");
                     try {
-                        const messageBody = `Kullanıcı Adı: ${resetTargetProjectData.user}\nŞifre: ${resetTargetProjectData.pass}`;
+                        const messageBody = `Username: ${resetTargetProjectData.user}\nPassword: ${resetTargetProjectData.pass}`;
                         const infoParams = {
                             to_email: lastEnteredEmail,
-                            subject: `${resetTargetProjectData.name} - Sistem Erişim Bilgileri`,
+                            subject: `${resetTargetProjectData.name} - System Access Information`,
                             message: messageBody
                         };
                         await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_INFO_TEMPLATE, infoParams);
                         toggleLoading(false);
-                        showMessage("Başarılı", `E-posta adresiniz doğrulandı.\n\n${resetTargetProjectData.name} projesine ait erişim bilgileriniz ${lastEnteredEmail} adresine gönderilmiştir.`, "success");
+                        showMessage("Success", `Email address verified.\n\nAccess credentials for ${resetTargetProjectData.name} have been sent to ${lastEnteredEmail}.`, "success");
                         closeForgotPassModal();
                     } catch (e) {
                         toggleLoading(false);
-                        showMessage("Hata", "Doğrulama başarılı ancak bilgiler mail ile gönderilirken bir hata oluştu.");
+                        showMessage("Error", "Verification successful but an error occurred while sending info via email.");
                     }
                 } else {
                     closeForgotPassModal();
                 }
             } else {
-                showMessage("Hata", "Hatalı kod. Lütfen e-postanızı kontrol edin.");
+                showMessage("Error", "Invalid code. Please check your email.");
             }
         }
 
@@ -882,7 +882,7 @@
             try {
                 const blob = new Blob([JSON.stringify(dynamicAuth)], { type: 'application/json' });
                 await supabaseClient.storage.from(BUCKET_NAME).upload(CONFIG_PATH, blob, { upsert: true, contentType: 'application/json' });
-            } catch (e) { console.error("Yetki verisi kaydetme hatası:", e); }
+            } catch (e) { console.error("Auth data save error:", e); }
         }
 
         function showMessage(title, text, type = 'error') {
@@ -963,11 +963,11 @@
         }
 
         async function downloadAllProjectQrs(projName) {
-            toggleLoading(true, `İşleniyor: ${projName}...`);
+            toggleLoading(true, `Processing: ${projName}...`);
             try {
                 const { data: files } = await supabaseClient.storage.from(BUCKET_NAME).list(`public/data/${projName}`);
                 const jsonFiles = (files || []).filter(f => f.name.endsWith('.json'));
-                if (jsonFiles.length === 0) { showMessage("Hata", "Bu projede döküman bulunamadı."); return; }
+                if (jsonFiles.length === 0) { showMessage("Error", "No documents found in this project."); return; }
                 const zip = new JSZip(); const folder = zip.folder(`${projName}_QR_Codes`); const hiddenContainer = get('hiddenQrContainer');
                 for (let i = 0; i < jsonFiles.length; i++) {
                     const f = jsonFiles[i]; const path = `public/data/${projName}/${f.name}`;
@@ -983,20 +983,20 @@
                         const dataUrl = finalCanvas.toDataURL('image/png').split(',')[1];
                         folder.file(`${sopTitle.replace(/[^a-zA-Z0-9]/g, '_')}_QR.png`, dataUrl, {base64: true});
                     }
-                    toggleLoading(true, `Hazırlanıyor: ${i+1}/${jsonFiles.length}`);
+                    toggleLoading(true, `Preparing: ${i+1}/${jsonFiles.length}`);
                 }
                 const content = await zip.generateAsync({type: "blob"});
-                const link = document.createElement('a'); link.download = `${projName}_QR_ARSIVI.zip`; link.href = URL.createObjectURL(content); link.click();
-                showMessage("Başarılı", `${jsonFiles.length} adet QR paketlendi.`, "success");
-            } catch (err) { showMessage("Hata", "ZIP oluşturulamadı."); } finally { toggleLoading(false); get('hiddenQrContainer').innerHTML = ''; }
+                const link = document.createElement('a'); link.download = `${projName}_QR_ARCHIVE.zip`; link.href = URL.createObjectURL(content); link.click();
+                showMessage("Success", `${jsonFiles.length} QRs packaged.`, "success");
+            } catch (err) { showMessage("Error", "ZIP could not be created."); } finally { toggleLoading(false); get('hiddenQrContainer').innerHTML = ''; }
         }
 
         async function printAllProjectQrs(projName) {
-            toggleLoading(true, `Yazdırma hazırlanıyor: ${projName}...`);
+            toggleLoading(true, `Preparing print: ${projName}...`);
             try {
                 const { data: files } = await supabaseClient.storage.from(BUCKET_NAME).list(`public/data/${projName}`);
                 const jsonFiles = (files || []).filter(f => f.name.endsWith('.json'));
-                if (jsonFiles.length === 0) { showMessage("Hata", "Döküman bulunamadı."); return; }
+                if (jsonFiles.length === 0) { showMessage("Error", "No documents found."); return; }
                 const items = []; const hiddenContainer = get('hiddenQrContainer');
                 for (let i = 0; i < jsonFiles.length; i++) {
                     const f = jsonFiles[i]; const path = `public/data/${projName}/${f.name}`;
@@ -1013,7 +1013,7 @@
                         items.push({ img: dataUrl });
                     }
                 }
-                let printHtml = `<html><head><title>QR Yazdır</title><style>
+                let printHtml = `<html><head><title>Print QRs</title><style>
                 body { margin: 0; padding: 0; background: #fff; }
                 .page { width: 210mm; height: 297mm; padding: 10mm; display: grid; grid-template-columns: 95mm 95mm; grid-template-rows: 135mm 135mm; gap: 5mm; page-break-after: always; box-sizing: border-box; justify-content: center; align-content: center; }
                 .qr-card { width: 90mm; height: 80mm; border: 0.5mm solid #000000 !important; display: flex; justify-content: center; align-items: center; background: #ffffff; overflow: hidden; box-sizing: border-box; margin: auto; }
@@ -1036,7 +1036,7 @@
                         }
                     }, 500);
                 }
-            } catch (err) { showMessage("Hata", "Yazdırma başarısız."); } finally { toggleLoading(false); get('hiddenQrContainer').innerHTML = ''; }
+            } catch (err) { showMessage("Error", "Print failed."); } finally { toggleLoading(false); get('hiddenQrContainer').innerHTML = ''; }
         }
 
         function saveCurrentToDraft() {
@@ -1066,7 +1066,7 @@
             get('sopSubtitleInput').value = projName;
             if(projLogo) { get('logoPreview').src = projLogo; get('logoPreview').classList.remove('hidden'); get('logoPlaceholder').classList.add('hidden'); }
             else if(newSopDraft.logo) { get('logoPreview').src = newSopDraft.logo; get('logoPreview').classList.remove('hidden'); get('logoPlaceholder').classList.add('hidden'); }
-            toggleLoading(true, "Taslak yükleniyor...");
+            toggleLoading(true, "Loading draft...");
             (async () => {
                 const sImages = newSopDraft.images || [null]; images = [];
                 for(let i=0; i<sImages.length; i++) {
@@ -1084,8 +1084,8 @@
 
         function deleteDraft() {
             if (!newSopDraft) return;
-            showConfirm("Taslağı Sil", "Mevcut taslak verileri silinecektir. Onaylıyor musunuz?", function() {
-                newSopDraft = null; renderDraftNotice(); showMessage("Bilgi", "Taslak silindi.", "success");
+            showConfirm("Delete Draft", "Existing draft data will be deleted. Are you sure?", function() {
+                newSopDraft = null; renderDraftNotice(); showMessage("Info", "Draft deleted.", "success");
             });
         }
 
@@ -1096,7 +1096,7 @@
                     <div class="flex items-center gap-2 mb-3 animate-in slide-in-from-left duration-300">
                         <div class="draft-notice" onclick="loadDraft()">
                             <i data-lucide="edit-3" class="w-4 h-4"></i>
-                            <span class="truncate">Devam Eden Taslak</span>
+                            <span class="truncate">Ongoing Draft</span>
                         </div>
                         <button onclick="deleteDraft()" class="draft-delete-btn">
                             <i data-lucide="trash-2" class="w-5 h-5"></i>
@@ -1110,7 +1110,7 @@
         function autoResizeStepArea(el) { el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
 
         function clearCurrentImage() {
-            showConfirm("Görseli Kaldır", "Bu görseli ve üzerindeki işaretçileri silmek istiyor musunuz?", function() {
+            showConfirm("Remove Image", "Do you want to delete this image and all its markers?", function() {
                 images[activeIdx] = null;
                 points = points.filter(p => p.imgIdx !== activeIdx || p.isManual);
                 arrows = arrows.filter(a => a.imgIdx !== activeIdx);
@@ -1120,8 +1120,8 @@
         }
 
         function removeTab(index) {
-            if (images.length <= 1) { showMessage("Uyarı", "En az bir sekme kalmalıdır."); return; }
-            showConfirm("Sekmeyi Sil", `Sekme ${index + 1} silinecek. Onaylıyor musunuz?`, function() {
+            if (images.length <= 1) { showMessage("Warning", "At least one tab must remain."); return; }
+            showConfirm("Delete Tab", `Tab ${index + 1} will be deleted. Are you sure?`, function() {
                 points = points.filter(p => p.imgIdx !== index || p.isManual);
                 arrows = arrows.filter(a => a.imgIdx !== index);
                 points.forEach(p => { if(!p.isManual && p.imgIdx > index) p.imgIdx--; });
@@ -1139,7 +1139,7 @@
             images.forEach((img, i) => {
                 const btn = document.createElement('button');
                 btn.className = `tab-btn relative px-4 py-3 text-xs font-black uppercase tracking-widest whitespace-nowrap shrink-0 ${activeIdx === i ? 'active' : ''}`;
-                btn.innerHTML = `<span>Görsel ${i + 1}</span><span class="ml-2 p-1 hover:bg-red-50 hover:text-white rounded-full transition-colors text-[10px] font-black leading-none" onclick="event.stopPropagation(); removeTab(${i})">✕</span>`;
+                btn.innerHTML = `<span>Image ${i + 1}</span><span class="ml-2 p-1 hover:bg-red-50 hover:text-white rounded-full transition-colors text-[10px] font-black leading-none" onclick="event.stopPropagation(); removeTab(${i})">✕</span>`;
                 btn.onclick = function() { activeIdx = i; renderAll(); };
                 container.appendChild(btn);
             });
@@ -1157,7 +1157,7 @@
             get('editProjectNameInput').value = auth.name || projId;
             get('editProjectUserInput').value = auth.user;
             get('editProjectPassInput').value = auth.pass;
-            get('editProjectAuthTitle').innerText = `${projId} BİLGİLERİ`;
+            get('editProjectAuthTitle').innerText = `${projId} INFORMATION`;
             const p = get('editProjectLogoPreview');
             const h = get('editProjectLogoPlaceholder');
             if(auth.logo) { p.src = auth.logo; p.classList.remove('hidden'); h.classList.add('hidden'); }
@@ -1173,7 +1173,7 @@
             const pass = get('editProjectPassInput').value.trim();
             const logo = get('editProjectLogoPreview').src || null;
             if (name && user && pass && currentlyEditingProject) {
-                toggleLoading(true, "Güncelleniyor...");
+                toggleLoading(true, "Updating...");
                 const existingEmail = dynamicAuth[currentlyEditingProject.toUpperCase()]?.email || '';
                 dynamicAuth[currentlyEditingProject.toUpperCase()] = { user: user, pass: pass, logo: logo, name: name, email: existingEmail };
                 await saveDynamicAuthToSupabase();
@@ -1188,8 +1188,8 @@
                 get('editProjectAuthModal').classList.remove('flex');
                 toggleLoading(false);
                 fetchArchive();
-                showMessage("Başarılı", "Proje bilgileri güncellendi.", "success");
-            } else { showMessage("Eksik Bilgi", "Lütfen tüm alanları doldurun."); }
+                showMessage("Success", "Project information updated.", "success");
+            } else { showMessage("Missing Info", "Please fill in all fields."); }
         }
 
         function handleModalLogoChange(e, previewId, placeholderId) {
@@ -1221,12 +1221,12 @@
                 const user = get('newProjectUserInput').value.trim(); const pass = get('newProjectPassInput').value.trim();
                 const logo = get('newProjectLogoPreview').src || null;
                 if (name && user && pass) {
-                    toggleLoading(true, "Proje oluşturuluyor...");
+                    toggleLoading(true, "Creating project...");
                     dynamicAuth[name] = { user: user, pass: pass, logo: logo, name: name, email: '' }; 
                     await saveDynamicAuthToSupabase();
                     activeProject = name; get('newProjectModal').classList.add('hidden'); get('newProjectModal').classList.remove('flex');
                     toggleLoading(false); openEditorForNewSop(); fetchArchive();
-                } else { showMessage("Eksik Bilgi", "Lütfen tüm alanları doldurun."); }
+                } else { showMessage("Missing Info", "Please fill in all fields."); }
             });
             safeSetClick('saveEditedProjectAuthBtn', saveEditedProjectAuth);
             safeSetClick('backToGateway', function() { get('loginScreen').style.display = 'none'; get('modeSelectionScreen').style.display = 'flex'; });
@@ -1245,11 +1245,11 @@
                         const parts = pendingPath.split('/'); const req = (parts.length > 2) ? parts[2].toUpperCase() : null;
                         if (isAdmin || (isProjectAuth && matchedProj === req)) { 
                             get('loginScreen').style.display = 'none'; loginSuccess(isAdmin ? 'admin' : 'project', matchedProj || uInp); loadSopData(pendingPath); 
-                        } else { get('loginError').innerText = "Erişim engellendi."; get('loginError').classList.remove('hidden'); }
+                        } else { get('loginError').innerText = "Access denied."; get('loginError').classList.remove('hidden'); }
                     } else { 
                         if (isAdmin) loginSuccess('admin', null); 
                         else if (isProjectAuth) loginSuccess('project', matchedProj); 
-                        else { get('loginError').innerText = "Hatalı giriş."; get('loginError').classList.remove('hidden'); } 
+                        else { get('loginError').innerText = "Incorrect login."; get('loginError').classList.remove('hidden'); } 
                     }
                 };
             }
@@ -1265,21 +1265,21 @@
             safeSetClick('viewRevisionBtn', async function() {
                 if (!currentSopPath) return;
                 if (isDirty) {
-                    loadOperatorSop(currentSopPath, "ŞU ANKİ KAYITLI HALİ (DÜZENLEMEDEN ÖNCEKİ)");
+                    loadOperatorSop(currentSopPath, "CURRENT SAVED STATE (BEFORE EDITING)");
                     return;
                 }
-                toggleLoading(true, "Geçmiş taranıyor...");
+                toggleLoading(true, "Scanning history...");
                 try {
                     const filename = currentSopPath.split('/').pop().replace('.json', '');
                     const historyFolder = `public/history/${activeProject}/${filename}`;
                     const { data: historyFiles } = await supabaseClient.storage.from(BUCKET_NAME).list(historyFolder);
                     if (historyFiles && historyFiles.length > 0) {
                         const latestHistory = historyFiles.sort((a,b) => b.name.localeCompare(a.name))[0];
-                        loadOperatorSop(`${historyFolder}/${latestHistory.name}`, "BİR ÖNCEKİ KAYITLI REVİZYON");
+                        loadOperatorSop(`${historyFolder}/${latestHistory.name}`, "PREVIOUS SAVED REVISION");
                     } else {
-                        loadOperatorSop(currentSopPath, "ORİJİNAL KAYITLI HALİ");
+                        loadOperatorSop(currentSopPath, "ORIGINAL SAVED STATE");
                     }
-                } catch(e) { loadOperatorSop(currentSopPath, "KAYITLI HALİ"); } finally { toggleLoading(false); }
+                } catch(e) { loadOperatorSop(currentSopPath, "SAVED STATE"); } finally { toggleLoading(false); }
             });
             const sti = get('sopTitleInput'); if(sti) sti.oninput = () => setModified(true);
             const tools = { toolRed:'red', toolBlue:'blue', toolGreen:'green', toolOrange:'orange', toolPurple:'purple', toolArrow:'arrow', toolOperator:'operator' };
@@ -1318,7 +1318,7 @@
             if (mode === 'operator') loadOperatorSop(pendingPath); 
             else { 
                 loginPurpose = 'engineer_edit'; 
-                if(get('loginHeading')) get('loginHeading').innerText = "Mühendis Girişi"; 
+                if(get('loginHeading')) get('loginHeading').innerText = "Engineer Login"; 
                 if(get('loginError')) get('loginError').classList.add('hidden'); 
                 if(get('backToGateway')) get('backToGateway').classList.remove('hidden'); 
                 if(get('loginScreen')) get('loginScreen').style.display = 'flex'; 
@@ -1336,7 +1336,7 @@
                     const projAuth = dynamicAuth[projId.toUpperCase()] || {};
                     const displayProjectName = projAuth.name || projId; 
                     const editAuthHtml = currentUser.role === 'admin' ? 
-                        `<button onclick="event.stopPropagation(); openEditProjectAuth('${projId}')" class="p-1.5 hover:bg-amber-100 rounded-lg text-amber-600" title="Yetki/Bilgi Düzenle"><i data-lucide="key-round" class="w-4 h-4"></i></button>` : '';
+                        `<button onclick="event.stopPropagation(); openEditProjectAuth('${projId}')" class="p-1.5 hover:bg-amber-100 rounded-lg text-amber-600" title="Edit Auth/Info"><i data-lucide="key-round" class="w-4 h-4"></i></button>` : '';
 
                     const header = document.createElement('div');
                     header.className = `project-group-header ${activeProject === projId ? 'active' : ''}`;
@@ -1359,18 +1359,18 @@
                         const path = `public/data/${projId}/${f.name}`;
                         const div = document.createElement('div');
                         div.className = "p-3 hover:bg-slate-100 rounded-xl cursor-pointer text-[11px] font-bold flex items-center justify-between ml-3 mt-2 border border-transparent";
-                        div.innerHTML = `<span class="truncate flex-grow mr-2 uppercase tracking-tight name-label">Yükleniyor...</span><div class="flex gap-2 items-center"><button class="text-[#000080] p-1.5 hover:bg-blue-50 rounded-lg"><i data-lucide="qr-code" class="w-4 h-4"></i></button><button class="text-slate-600 p-1.5 hover:bg-slate-200 rounded-lg"><i data-lucide="eye" class="w-4 h-4"></i></button><button class="text-red-500 p-1.5 hover:bg-red-50 rounded-lg"><i data-lucide="trash-2" class="w-4 h-4"></i></button></div>`;
+                        div.innerHTML = `<span class="truncate flex-grow mr-2 uppercase tracking-tight name-label">Loading...</span><div class="flex gap-2 items-center"><button class="text-[#000080] p-1.5 hover:bg-blue-50 rounded-lg"><i data-lucide="qr-code" class="w-4 h-4"></i></button><button class="text-slate-600 p-1.5 hover:bg-slate-200 rounded-lg"><i data-lucide="eye" class="w-4 h-4"></i></button><button class="text-red-500 p-1.5 hover:bg-red-50 rounded-lg"><i data-lucide="trash-2" class="w-4 h-4"></i></button></div>`;
                         (async () => {
                             try {
                                 const { data } = await supabaseClient.storage.from(BUCKET_NAME).download(path);
                                 const s = JSON.parse(await data.text());
-                                const label = div.querySelector('.name-label'); if (label) label.innerText = s.title || "BAŞLIKSIZ";
+                                const label = div.querySelector('.name-label'); if (label) label.innerText = s.title || "UNTITLED";
                                 const btns = div.querySelectorAll('button');
                                 btns[0].onclick = (e) => { e.stopPropagation(); showQr(path, s.title); };
                                 btns[1].onclick = (e) => { e.stopPropagation(); showModeSelection(path); };
                                 btns[2].onclick = (e) => { e.stopPropagation(); deleteSop(path); };
                                 div.onclick = (e) => { e.stopPropagation(); loadSopData(path); };
-                            } catch (e) { if (div.querySelector('.name-label')) div.querySelector('.name-label').innerText = "HATA"; }
+                            } catch (e) { if (div.querySelector('.name-label')) div.querySelector('.name-label').innerText = "ERROR"; }
                         })();
                         content.appendChild(div);
                     }
@@ -1381,27 +1381,27 @@
         }
 
         async function deleteWholeProject(projName) {
-            showConfirm("Projeyi Sil", `"${projName}" projesini silmek istediğinize emin misiniz?`, async function() {
-                toggleLoading(true, "Siliniyor...");
+            showConfirm("Delete Project", `Are you sure you want to delete project "${projName}"?`, async function() {
+                toggleLoading(true, "Deleting...");
                 try {
                     const { data: files } = await supabaseClient.storage.from(BUCKET_NAME).list(`public/data/${projName}`);
                     if (files && files.length > 0) { const paths = files.map(f => `public/data/${projName}/${f.name}`); await supabaseClient.storage.from(BUCKET_NAME).remove(paths); }
                     await supabaseClient.storage.from(BUCKET_NAME).remove([`public/data/${projName}`]);
                     delete dynamicAuth[projName.toUpperCase()]; await saveDynamicAuthToSupabase();
-                    await fetchArchive(); showMessage("Başarılı", `Proje silindi.`, "success");
-                } catch (e) { showMessage("Hata", "İşlem başarısız."); } finally { toggleLoading(false); }
+                    await fetchArchive(); showMessage("Success", `Project deleted.`, "success");
+                } catch (e) { showMessage("Error", "Action failed."); } finally { toggleLoading(false); }
             });
         }
 
         async function deleteSop(p) { 
-            showConfirm("Talimatı Sil", "Bu dökümanı kalıcı olarak silmek istiyor musunuz?", async function() {
-                toggleLoading(true, "Siliniyor...");
-                try { const cleanP = p.replace(/^\/+/, ''); await supabaseClient.storage.from(BUCKET_NAME).remove([cleanP]); await fetchArchive(); } catch(e) { showMessage("Hata", "İşlem başarısız."); } finally { toggleLoading(false); }
+            showConfirm("Delete Instruction", "Are you sure you want to permanently delete this document?", async function() {
+                toggleLoading(true, "Deleting...");
+                try { const cleanP = p.replace(/^\/+/, ''); await supabaseClient.storage.from(BUCKET_NAME).remove([cleanP]); await fetchArchive(); } catch(e) { showMessage("Error", "Action failed."); } finally { toggleLoading(false); }
             });
         }
 
-        async function loadOperatorSop(path, modeTitle = "Operatör Görünümü") {
-            toggleLoading(true, "Yükleniyor...");
+        async function loadOperatorSop(path, modeTitle = "Operator View") {
+            toggleLoading(true, "Loading...");
             try {
                 const cleanPath = path.replace(/^\/+/, ''); const { data } = await supabaseClient.storage.from(BUCKET_NAME).download(cleanPath);
                 opCurrentSop = JSON.parse(await data.text()); opActiveIdx = 0;
@@ -1430,7 +1430,7 @@
                 renderOperatorSlider(); renderOperatorSteps();
                 if(get('operatorView')) get('operatorView').style.display = 'flex'; 
                 lucide.createIcons();
-            } catch(e) { showMessage("Hata", "Yükleme başarısız."); } finally { toggleLoading(false); }
+            } catch(e) { showMessage("Error", "Loading failed."); } finally { toggleLoading(false); }
         }
 
         function renderOperatorSlider() {
@@ -1438,7 +1438,7 @@
             media.innerHTML = ''; const nav = get('opNavigation');
             const sImages = opCurrentSop.images || []; const validImages = sImages.filter(img => img !== null);
             if (validImages.length === 0) { if(nav) nav.classList.add('hidden'); return; }
-            if (validImages.length > 1) { if(nav) nav.classList.remove('hidden'); if(get('opImageCounter')) get('opImageCounter').innerText = `Görsel ${opActiveIdx + 1} / ${validImages.length}`; }
+            if (validImages.length > 1) { if(nav) nav.classList.remove('hidden'); if(get('opImageCounter')) get('opImageCounter').innerText = `Image ${opActiveIdx + 1} / ${validImages.length}`; }
             else { if(nav) nav.classList.add('hidden'); }
             const currentImgSrc = validImages[opActiveIdx];
             const div = document.createElement('div'); div.className = "relative bg-white rounded-[32px] overflow-hidden shadow-md border border-slate-200 animate-in fade-in zoom-in duration-300";
@@ -1449,7 +1449,7 @@
                 if(p.imgIdx === opActiveIdx && !p.isManual) {
                     const mk = document.createElement('div'); mk.className = p.type === 'operator' ? 'marker-operator' : `marker marker-${p.type}`;
                     mk.style.left = p.px + '%'; mk.style.top = p.py + '%';
-                    mk.innerHTML = p.type === 'operator' ? 'OPERATÖR' : (p.type === 'red' ? sc : ''); div.appendChild(mk);
+                    mk.innerHTML = p.type === 'operator' ? 'OPERATOR' : (p.type === 'red' ? sc : ''); div.appendChild(mk);
                 }
             });
             const arrowCanvas = document.createElement('canvas'); arrowCanvas.className = "absolute inset-0 pointer-events-none"; div.appendChild(arrowCanvas);
@@ -1482,7 +1482,7 @@
 
         async function loadSopData(path) {
             if (currentSopPath === null && (points.length > 0 || get('sopTitleInput').value.trim() !== '')) { saveCurrentToDraft(); }
-            toggleLoading(true, "Editöre yükleniyor...");
+            toggleLoading(true, "Loading to editor...");
             try {
                 const cleanPath = path.replace(/^\/+/, ''); const { data } = await supabaseClient.storage.from(BUCKET_NAME).download(cleanPath);
                 const s = JSON.parse(await data.text());
@@ -1512,7 +1512,7 @@
                 if(get('projectEmptyState')) get('projectEmptyState').classList.add('hidden'); 
                 if(get('sopEditor')) get('sopEditor').classList.remove('hidden');
                 setModified(false);
-            } catch(e) { showMessage("Hata", "İşlem başarısız."); } finally { toggleLoading(false); }
+            } catch(e) { showMessage("Error", "Action failed."); } finally { toggleLoading(false); }
         }
 
         function selectProject(projId) { 
@@ -1526,7 +1526,7 @@
         
         function openEditorForNewSop() { 
             if (newSopDraft) {
-                showConfirm("Taslak Var", "Mevcut bir taslağınız bulunuyor. Ona devam etmek ister misiniz?", function() { loadDraft(); }, 'orange');
+                showConfirm("Draft Exists", "You have an ongoing draft. Would you like to continue with it?", function() { loadDraft(); }, 'orange');
                 return;
             }
             resetApp(); currentSopPath = null;
@@ -1545,7 +1545,7 @@
 
         function closeEditor() { 
             if (currentSopPath === null && (points.length > 0 || get('sopTitleInput').value.trim() !== '')) {
-                showConfirm("Kaydedilmedi", "Çalışmanız kaydedilmedi. Taslak olarak saklamak ister misiniz?", function() {
+                showConfirm("Not Saved", "Your work is not saved. Do you want to save it as a draft?", function() {
                     saveCurrentToDraft(); if(get('sopEditor')) get('sopEditor').classList.add('hidden'); if(get('projectEmptyState')) get('projectEmptyState').classList.remove('hidden');
                 });
             } else {
@@ -1584,14 +1584,14 @@
                 const isStep = p.type === 'red' || p.isManual; if(isStep) sc++; 
                 if (p.imgIdx === activeIdx && !p.isManual && overlay) { 
                     const m = document.createElement('div'); m.className = p.type === 'operator' ? 'marker-operator' : `marker marker-${p.type}`; 
-                    m.style.left = p.px + '%'; m.style.top = p.py + '%'; m.innerHTML = p.type === 'operator' ? 'OPERATÖR' : (p.type === 'red' ? sc : ''); 
+                    m.style.left = p.px + '%'; m.style.top = p.py + '%'; m.innerHTML = p.type === 'operator' ? 'OPERATOR' : (p.type === 'red' ? sc : ''); 
                     m.onclick = (e) => { e.stopPropagation(); points.splice(i, 1); renderAll(); setModified(true); }; overlay.appendChild(m); 
                 } 
                 if (isStep && table) { 
                     const row = document.createElement('div'); row.className = "flex items-start gap-3 p-4 bg-slate-50 rounded-2xl mb-3 border border-slate-100"; 
                     const colorClass = p.isManual ? 'bg-blue-600' : 'bg-red-600';
                     row.innerHTML = `<span class="w-6 h-6 rounded-lg ${colorClass} text-white flex items-center justify-center text-[10px] font-black shrink-0 mt-1">${sc}</span>
-                                    <textarea class="step-description-area flex-grow" oninput="points[${i}].description=this.value; autoResizeStepArea(this); setModified(true);" placeholder="Adım açıklaması...">${p.description}</textarea>
+                                    <textarea class="step-description-area flex-grow" oninput="points[${i}].description=this.value; autoResizeStepArea(this); setModified(true);" placeholder="Step description...">${p.description}</textarea>
                                     <button onclick="points.splice(${i},1); renderAll(); setModified(true);" class="text-red-400 p-1 mt-1"><i data-lucide="trash-2" class="w-4 h-4"></i></button>`; 
                     table.appendChild(row); setTimeout(() => { const ta = row.querySelector('textarea'); if(ta) autoResizeStepArea(ta); }, 0);
                 } 
@@ -1607,8 +1607,8 @@
         
         async function handleSave() { 
             const title = get('sopTitleInput').value; 
-            if(!title) return showMessage("Eksik Bilgi", "Lütfen bir başlık girin."); 
-            toggleLoading(true, "Veriler işleniyor..."); 
+            if(!title) return showMessage("Missing Info", "Please enter a title."); 
+            toggleLoading(true, "Processing data..."); 
             try { 
                 let targetPath = currentSopPath || `public/data/${activeProject}/SOP_${Date.now()}.json`;
                 const filename = targetPath.split('/').pop().replace('.json', '');
@@ -1621,7 +1621,7 @@
                 }
                 const finalIsEdited = currentSopPath ? true : false;
                 const now = new Date();
-                const timestampStr = now.toLocaleDateString('tr-TR') + ' ' + now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+                const timestampStr = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
                 const editorName = currentUser.project || "ELDOR";
                 const state = { 
                     title: title, 
@@ -1646,7 +1646,7 @@
                 showQr(targetPath, title); 
                 fetchArchive(); 
                 setModified(false);
-            } catch (e) { showMessage("Hata", e.message); toggleLoading(false); } 
+            } catch (e) { showMessage("Error", e.message); toggleLoading(false); } 
         }
 
         function resetApp() { 
